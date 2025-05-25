@@ -1,6 +1,6 @@
-export type aiMessageResponse = {
-	chatId: string;
-	message: string;
+export type N8nMessageResponse = {
+	sessionId: string;
+	output: string;
 };
 
 export interface optionButton {

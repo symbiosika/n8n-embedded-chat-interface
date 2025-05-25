@@ -13,7 +13,6 @@ declare module 'vue' {
     MarkdownRenderer: typeof import('./components/markdown/Renderer.vue')['default']
     N8nEmbeddedChatInterface: typeof import('./components/N8nEmbeddedChatInterface.vue')['default']
     Thinking: typeof import('./components/Thinking.vue')['default']
-    ThinkingDot: typeof import('./components/ThinkingDot.vue')['default']
     UiAccordionAccordion: typeof import('./components/ui/accordion/Accordion.vue')['default']
     UiAccordionAccordionContent: typeof import('./components/ui/accordion/AccordionContent.vue')['default']
     UiAccordionAccordionItem: typeof import('./components/ui/accordion/AccordionItem.vue')['default']

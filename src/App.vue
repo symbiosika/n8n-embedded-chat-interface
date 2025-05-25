@@ -15,7 +15,7 @@
 			</div>
 		</header>
 		<!-- For testing -->
-		<N8nEmbeddedChatInterface label="n8n Chat Demo" description="This is a n8n Chat Demo" hostname="https://n8nservice.symbiosika.de/webhook/e8a97543-d3de-4969-8797-1be5a5deafe5" mode="n8n" open-on-start="false" />
+		<N8nEmbeddedChatInterface label="n8n Chat Demo" description="This is a n8n Chat Demo" :hostname="testUrl" mode="n8n" open-on-start="false" />
 	</div>
 </template>
 <script setup>
@@ -23,6 +23,8 @@ import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useDark, useToggle } from "@vueuse/core";
 import N8nEmbeddedChatInterface from "./components/N8nEmbeddedChatInterface.vue";
+
+const testUrl = ref(import.meta.env.VITE_N8N_TEST_WEBHOOK_URL ?? "");
 
 // Use vue-i18n composable
 const { locale } = useI18n();
