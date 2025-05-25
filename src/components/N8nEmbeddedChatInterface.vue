@@ -27,7 +27,7 @@
 		</div>
 		<div class="h-[calc(100%-40px)] overflow-auto">
 			<!-- Render content based on mode prop -->
-			<template v-if="props.mode === 'n8n'">
+			<template v-if="appConfig.mode === 'n8n'">
 				<ChatN8n />
 			</template>
 		</div>

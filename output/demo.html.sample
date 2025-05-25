@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>REAL DEMO - Embeded as Web Component</title>
+		<script type="module" src="https://embed-chatbot.perlecto.de/index.umd.cjs"></script>
+		<!-- <script type="module" src="./index.umd.cjs"></script> -->
+	</head>
+
+	<body style="margin: 0">
+		<n8n-embedded-chat-interface label="n8n Demo" hostname="https://n8n.mydomain.com/webhook/xxx" open-on-start="true" />
+	</body>
+</html>

@@ -33,3 +33,4 @@ src/styles/output.css
 
 #output/index.css
 #output/index.umd.cjs
+output/demo.html
