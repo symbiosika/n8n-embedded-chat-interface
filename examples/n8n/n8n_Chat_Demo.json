@@ -1,0 +1,331 @@
+{
+	"name": "n8n Chat Demo (GitHub) copy",
+	"nodes": [
+		{
+			"parameters": {
+				"options": {}
+			},
+			"type": "n8n-nodes-base.respondToWebhook",
+			"typeVersion": 1.1,
+			"position": [1300, -120],
+			"id": "b7caf2b6-a438-47d6-95cb-d423edcc5ee6",
+			"name": "Respond to Webhook"
+		},
+		{
+			"parameters": {},
+			"type": "n8n-nodes-base.merge",
+			"typeVersion": 3.1,
+			"position": [460, -120],
+			"id": "4a0b1e1e-c6c1-454c-9cd1-ecefd5f9336e",
+			"name": "Merge"
+		},
+		{
+			"parameters": {
+				"options": {}
+			},
+			"type": "@n8n/n8n-nodes-langchain.agent",
+			"typeVersion": 1.8,
+			"position": [680, -120],
+			"id": "ab7a8154-bb01-49f6-9629-a81a8eddd692",
+			"name": "AI Agent"
+		},
+		{
+			"parameters": {
+				"model": {
+					"__rl": true,
+					"value": "gpt-4o-mini",
+					"mode": "list",
+					"cachedResultName": "gpt-4o-mini"
+				},
+				"options": {}
+			},
+			"type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+			"typeVersion": 1.2,
+			"position": [680, 100],
+			"id": "b2bdfe0f-a59c-463e-b8a9-cb56abfd5a28",
+			"name": "OpenAI Chat Model",
+			"credentials": {
+				"openAiApi": {
+					"id": "sVGqZ7CLBXXt50eY",
+					"name": "OpenAi account"
+				}
+			}
+		},
+		{
+			"parameters": {
+				"conditions": {
+					"options": {
+						"caseSensitive": true,
+						"leftValue": "",
+						"typeValidation": "strict",
+						"version": 2
+					},
+					"conditions": [
+						{
+							"id": "5354b213-107d-4000-9f1f-cdf2614ea607",
+							"leftValue": "={{ $json.body }}",
+							"rightValue": "",
+							"operator": {
+								"type": "object",
+								"operation": "exists",
+								"singleValue": true
+							}
+						},
+						{
+							"id": "75209ef6-7649-41fc-a070-95783175a0d6",
+							"leftValue": "={{ $json.body.chatInput }}",
+							"rightValue": "",
+							"operator": {
+								"type": "string",
+								"operation": "exists",
+								"singleValue": true
+							}
+						}
+					],
+					"combinator": "and"
+				},
+				"options": {}
+			},
+			"type": "n8n-nodes-base.if",
+			"typeVersion": 2.2,
+			"position": [-540, -20],
+			"id": "c9aa6824-e13a-4ace-b1d9-ae0118705d93",
+			"name": "Check if chatInput is set"
+		},
+		{
+			"parameters": {},
+			"type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+			"typeVersion": 1.3,
+			"position": [820, 100],
+			"id": "ba90f182-b8c4-4b11-b02d-691625bd7107",
+			"name": "Simple Memory"
+		},
+		{
+			"parameters": {
+				"mode": "runOnceForEachItem",
+				"jsCode": "return {\n  output: $json.output,\n  sessionId: $('Merge').item.json.sessionId,\n};\n"
+			},
+			"type": "n8n-nodes-base.code",
+			"typeVersion": 2,
+			"position": [1080, -120],
+			"id": "14bb742d-1dfc-4142-a1c0-870b952832fc",
+			"name": "Build response with sessionId"
+		},
+		{
+			"parameters": {
+				"httpMethod": "POST",
+				"path": "4af602f1-e8c7-4f0c-856b-e08623232897",
+				"responseMode": "responseNode",
+				"options": {}
+			},
+			"type": "n8n-nodes-base.webhook",
+			"typeVersion": 2,
+			"position": [-780, -20],
+			"id": "e5ca41d9-4716-4ae9-8b85-01b7ff0e6537",
+			"name": "Webhook",
+			"webhookId": "4af602f1-e8c7-4f0c-856b-e08623232897"
+		},
+		{
+			"parameters": {
+				"jsCode": "return $input.first().json.body;"
+			},
+			"type": "n8n-nodes-base.code",
+			"typeVersion": 2,
+			"position": [-220, -120],
+			"id": "3833b6e3-759a-423a-8712-75463270c542",
+			"name": "Get \"body\""
+		},
+		{
+			"parameters": {
+				"options": {
+					"responseCode": 500
+				}
+			},
+			"type": "n8n-nodes-base.respondToWebhook",
+			"typeVersion": 1.1,
+			"position": [-220, 80],
+			"id": "c08e12ae-7f90-46c7-a212-e5e916e97847",
+			"name": "Error"
+		},
+		{
+			"parameters": {
+				"conditions": {
+					"options": {
+						"caseSensitive": true,
+						"leftValue": "",
+						"typeValidation": "strict",
+						"version": 2
+					},
+					"conditions": [
+						{
+							"id": "75209ef6-7649-41fc-a070-95783175a0d6",
+							"leftValue": "={{ $json.sessionId }}",
+							"rightValue": "",
+							"operator": {
+								"type": "string",
+								"operation": "notEmpty",
+								"singleValue": true
+							}
+						}
+					],
+					"combinator": "and"
+				},
+				"options": {}
+			},
+			"type": "n8n-nodes-base.if",
+			"typeVersion": 2.2,
+			"position": [20, -120],
+			"id": "99cea5a2-3800-4ffd-aef4-6a5ce6476df0",
+			"name": "Existing \"sessionId\"?"
+		},
+		{
+			"parameters": {
+				"action": "generate",
+				"dataPropertyName": "sessionId"
+			},
+			"type": "n8n-nodes-base.crypto",
+			"typeVersion": 1,
+			"position": [240, 80],
+			"id": "dc182701-3ab5-43a4-9cb3-605eacd57b96",
+			"name": "Generate sessionId"
+		}
+	],
+	"pinData": {},
+	"connections": {
+		"Merge": {
+			"main": [
+				[
+					{
+						"node": "AI Agent",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"AI Agent": {
+			"main": [
+				[
+					{
+						"node": "Build response with sessionId",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"OpenAI Chat Model": {
+			"ai_languageModel": [
+				[
+					{
+						"node": "AI Agent",
+						"type": "ai_languageModel",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Check if chatInput is set": {
+			"main": [
+				[
+					{
+						"node": "Get \"body\"",
+						"type": "main",
+						"index": 0
+					}
+				],
+				[
+					{
+						"node": "Error",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Simple Memory": {
+			"ai_memory": [
+				[
+					{
+						"node": "AI Agent",
+						"type": "ai_memory",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Build response with sessionId": {
+			"main": [
+				[
+					{
+						"node": "Respond to Webhook",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Webhook": {
+			"main": [
+				[
+					{
+						"node": "Check if chatInput is set",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Get \"body\"": {
+			"main": [
+				[
+					{
+						"node": "Existing \"sessionId\"?",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Existing \"sessionId\"?": {
+			"main": [
+				[
+					{
+						"node": "Merge",
+						"type": "main",
+						"index": 0
+					}
+				],
+				[
+					{
+						"node": "Generate sessionId",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Generate sessionId": {
+			"main": [
+				[
+					{
+						"node": "Merge",
+						"type": "main",
+						"index": 1
+					}
+				]
+			]
+		}
+	},
+	"active": false,
+	"settings": {
+		"executionOrder": "v1"
+	},
+	"versionId": "6f813a10-515b-4ce5-a8f4-8953ad0896b2",
+	"meta": {
+		"templateCredsSetupCompleted": true,
+		"instanceId": "3242303c0c6af0aee4348b0c1eef77bcc2f8d05e0d75e7a462fd9e1c65d4f57d"
+	},
+	"id": "U8YIj8ChjQkZV5wY",
+	"tags": []
+}
