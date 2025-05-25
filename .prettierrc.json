@@ -1,0 +1,14 @@
+{
+	"plugins": ["prettier-plugin-organize-attributes", "prettier-plugin-tailwindcss"],
+	"attributeGroups": ["type", "is", "v-for", "key", "v-if", "v-model", ":icon", "icon", ":class", "class", ":style", "style", "$DEFAULT", "@click"],
+	"tailwindPreserveWhitespace": true,
+	"tailwindPreserveDuplicates": false,
+	"semi": true,
+	"singleQuote": false,
+	"tabWidth": 4,
+	"useTabs": true,
+	"jsxBracketSameLine": true,
+	"singleAttributePerLine ": false,
+	"printWidth": 3000,
+	"bracketSpacing": true
+}

@@ -1,0 +1,35 @@
+name: Check for build Errors
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  workflow_dispatch:
+    # allow execution from github UI
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    env:
+      ARCHIVE_NAME: ${{ github.event.repository.name }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: 'main'
+
+      - name: Install Node.JS
+        uses: actions/setup-node@master
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Installing project dependencies
+        run: npm install
+
+      - name: Building the project
+        run: npm run build
