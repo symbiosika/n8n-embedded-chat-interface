@@ -19,7 +19,7 @@
 
 The **N8N Embedded Chat Interface** is a modern, embeddable native web component that enables you to integrate n8n workflows as interactive chatbots on any website. With just a few lines of HTML code, you can transform your n8n automations into user-friendly conversational interfaces.
 
-![widget](./docs/widget.png)
+![widget](./docs/animation_preview.gif)
 
 ### ✨ Key Features
 
