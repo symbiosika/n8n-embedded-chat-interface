@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: n8n-chat-interface
+    env: node
+    buildCommand: npm run render-build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
