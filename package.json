@@ -29,9 +29,12 @@
 		"preview": "vite preview",
 		"build-only": "vite build",
 		"type-check": "vue-tsc --build",
-		"format": "prettier --write src/"
+		"format": "prettier --write src/",
+		"start": "node server.js",
+		"render-build": "npm install && npm run build"
 	},
 	"dependencies": {
+		"express": "^4.18.2",
 		"@11labs/client": "^0.1.4",
 		"@tanstack/vue-table": "^8.21.2",
 		"@vueuse/core": "^10.11.1",

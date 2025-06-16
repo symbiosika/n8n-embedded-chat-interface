@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradieMate Chat Assistant</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #336A75 0%, #4EA3A6 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        h1 {
+            color: #336A75;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .brand-colors {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .color-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .primary { background-color: #336A75; }
+        .secondary { background-color: #4EA3A6; }
+        .demo-content {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1em;
+        }
+        .feature-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .feature-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .feature-list li {
+            margin: 8px 0;
+        }
+        .chat-notice {
+            background: linear-gradient(135deg, #336A75, #4EA3A6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 TradieMate Chat Assistant</h1>
+        
+        <div class="brand-colors">
+            <div class="color-box primary">Primary<br>#336A75</div>
+            <div class="color-box secondary">Secondary<br>#4EA3A6</div>
+        </div>
+        
+        <div class="demo-content">
+            <p><strong>Welcome to TradieMate's AI-powered chat assistant!</strong></p>
+            
+            <div class="feature-list">
+                <h3>🚀 Features:</h3>
+                <ul>
+                    <li>✅ Connected to your n8n workflow backend</li>
+                    <li>✅ Custom TradieMate brand colors (#336A75 & #4EA3A6)</li>
+                    <li>✅ Responsive design for all devices</li>
+                    <li>✅ Embeddable on any website</li>
+                    <li>✅ Session management for continuous conversations</li>
+                    <li>✅ Hosted on Render with automatic scaling</li>
+                </ul>
+            </div>
+            
+            <div class="chat-notice">
+                💬 The chat widget should appear in the bottom-right corner.<br>
+                Click it to start chatting with your TradieMate assistant!
+            </div>
+            
+            <h3>🔗 Integration Code:</h3>
+            <p>To embed this chat widget on your website, add this code:</p>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>&lt;script src="https://your-render-url.onrender.com/index.umd.cjs"&gt;&lt;/script&gt;
+&lt;n8n-embedded-chat-interface 
+    label="TradieMate Assistant" 
+    hostname="YOUR_PRODUCTION_N8N_WEBHOOK_URL" 
+    open-on-start="false"&gt;
+&lt;/n8n-embedded-chat-interface&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- N8N Chat Interface -->
+    <script src="./index.umd.cjs"></script>
+    <n8n-embedded-chat-interface 
+        label="TradieMate Assistant" 
+        hostname="http://localhost:5678/webhook/9ef3e72d-7bec-4ca7-9223-3d323f42a950/chat" 
+        open-on-start="false">
+    </n8n-embedded-chat-interface>
+</body>
+</html>
