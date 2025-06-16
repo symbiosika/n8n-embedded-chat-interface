@@ -29,7 +29,7 @@
 		"dev": "run-p tailwind:watch vite:dev",
 		"vite:dev": "vite",
 		"tailwind:watch": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch",
-		"build": "run-p type-check \"build-only {@}\" --",
+		"build": "npm run type-check && npm run build-only",
 		"preview": "vite preview",
 		"build-only": "vite build",
 		"type-check": "vue-tsc --build",
@@ -51,7 +51,8 @@
 		"tailwind-merge": "^3.0.2",
 		"tailwindcss-animate": "^1.0.7",
 		"vue": "^3.5.13",
-		"vue-i18n": "^12.0.0-alpha.2"
+		"vue-i18n": "^12.0.0-alpha.2",
+		"npm-run-all2": "^7.0.2"
 	},
 	"devDependencies": {
 		"@iconify/json": "^2.2.319",
@@ -60,7 +61,6 @@
 		"@types/node": "^22.13.14",
 		"@vitejs/plugin-vue": "^5.2.1",
 		"@vue/tsconfig": "^0.7.0",
-		"npm-run-all2": "^7.0.2",
 		"prettier": "3.5.3",
 		"prettier-plugin-organize-attributes": "^1.0.0",
 		"prettier-plugin-tailwindcss": "^0.6.9",
