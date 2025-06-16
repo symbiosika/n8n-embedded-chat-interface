@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N8N Chat Interface Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .demo-content {
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>N8N Chat Interface Demo</h1>
+        <div class="demo-content">
+            <p>This is a demo page showing the N8N embedded chat interface.</p>
+            <p>The chat widget should appear in the bottom-right corner of the page.</p>
+            <p>Configure your n8n webhook URL and customize the appearance as needed.</p>
+        </div>
+    </div>
+
+    <!-- N8N Chat Interface -->
+    <script src="./output/index.umd.cjs"></script>
+    <n8n-embedded-chat-interface 
+        label="TradieMate Assistant" 
+        hostname="http://localhost:5678/webhook/9ef3e72d-7bec-4ca7-9223-3d323f42a950/chat" 
+        open-on-start="false">
+    </n8n-embedded-chat-interface>
+</body>
+</html>

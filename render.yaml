@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: n8n-chat-interface
+    env: node
+    region: oregon
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        generateValue: true
