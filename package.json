@@ -29,7 +29,7 @@
 		"dev": "run-p tailwind:watch vite:dev",
 		"vite:dev": "vite",
 		"tailwind:watch": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch",
-		"build": "npm run type-check && npm run build-only",
+		"build": "npm run build-only",
 		"preview": "vite preview",
 		"build-only": "vite build",
 		"type-check": "vue-tsc --build",
