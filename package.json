@@ -3,7 +3,7 @@
 	"version": "0.2.1",
 	"private": false,
 	"type": "module",
-	"main": "output/index.js",
+	"main": "server.js",
 	"files": [
 		"output"
 	],
@@ -21,6 +21,10 @@
 	],
 	"author": "symbiosika",
 	"license": "Apache-2.0",
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=8.0.0"
+	},
 	"scripts": {
 		"dev": "run-p tailwind:watch vite:dev",
 		"vite:dev": "vite",
