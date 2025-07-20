@@ -47,6 +47,7 @@ import ChatN8n from "@/components/chat/n8n/Index.vue";
 
 import { useDark, useToggle } from "@vueuse/core";
 import { useApp } from "@/stores/App";
+import { onBeforeMount } from "vue";
 
 // import SunIcon from "~icons/mdi/weather-sunny";
 // import MoonIcon from "~icons/mdi/weather-night";
@@ -54,7 +55,27 @@ import { useApp } from "@/stores/App";
 
 const { isMaximized, show, appConfig } = useApp();
 
-const props = defineProps({ label: String, description: String, token: String, organisationId: String, assistant: String, hostname: String, mode: String, openOnStart: String });
+const props = defineProps({ 
+	label: String, 
+	description: String, 
+	token: String, 
+	organisationId: String, 
+	assistant: String, 
+	hostname: String, 
+	mode: String, 
+	openOnStart: String,
+	// Custom color scheme props (max 10 colors)
+	primaryColor: String,
+	secondaryColor: String,
+	backgroundColor: String,
+	textColor: String,
+	accentColor: String,
+	surfaceColor: String,
+	borderColor: String,
+	successColor: String,
+	warningColor: String,
+	errorColor: String
+});
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -70,7 +91,6 @@ const parseMode = (input?: string): Mode => {
 	}
 };
 const parsedMode = parseMode(props.mode);
-const tab = ref<Mode>(parsedMode);
 
 onBeforeMount(() => {
 	show.value = props.openOnStart === "true";

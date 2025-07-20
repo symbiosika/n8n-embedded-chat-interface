@@ -3,12 +3,252 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>REAL DEMO - Embeded as Web Component</title>
+		<title>REAL DEMO - Embedded as Web Component with Custom Colors</title>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/n8n-embedded-chat-interface@latest/output/index.js"></script>
 		<!-- <script type="module" src="./index.umd.cjs"></script> -->
+		<style>
+			body { 
+				margin: 0; 
+				font-family: Arial, sans-serif; 
+				background: #f5f5f5; 
+				padding: 20px;
+			}
+			.demo-section {
+				margin-bottom: 40px;
+				padding: 20px;
+				background: white;
+				border-radius: 8px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			}
+			.demo-section h2 {
+				margin-top: 0;
+				color: #333;
+			}
+			.demo-section p {
+				color: #666;
+				margin-bottom: 15px;
+			}
+			.color-preview {
+				display: flex;
+				gap: 10px;
+				margin-bottom: 15px;
+				flex-wrap: wrap;
+			}
+			.color-sample {
+				width: 30px;
+				height: 30px;
+				border-radius: 4px;
+				border: 1px solid #ddd;
+			}
+			.color-label {
+				font-size: 12px;
+				color: #666;
+			}
+		</style>
 	</head>
 
-	<body style="margin: 0">
-		<n8n-embedded-chat-interface label="n8n Demo" hostname="https://n8n.mydomain.com/webhook/xxx" open-on-start="true" />
+	<body>
+		<h1 style="text-align: center; color: #333;">N8N Embedded Chat Interface - Custom Color Schemes Demo</h1>
+		
+		<!-- ===== ACTIVE EXAMPLE - Only one should be uncommented at a time ===== -->
+		
+		<!-- Default Theme - ACTIVE -->
+		<div class="demo-section">
+			<h2>Default Theme</h2>
+			<p>Standard gray theme with no custom colors specified.</p>
+			<n8n-embedded-chat-interface 
+				label="Default Theme" 
+				hostname="https://n8n.mydomain.com/webhook/xxx" 
+				open-on-start="false" />
+		</div>
+
+		<!-- ===== COMMENTED EXAMPLES - Uncomment one at a time ===== -->
+
+		<!-- Blue Corporate Theme
+		<div class="demo-section">
+			<h2>Blue Corporate Theme</h2>
+			<p>Professional blue theme suitable for corporate websites.</p>
+			<div class="color-preview">
+				<div>
+					<div class="color-sample" style="background-color: #2563eb;"></div>
+					<div class="color-label">Primary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #64748b;"></div>
+					<div class="color-label">Secondary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #f8fafc;"></div>
+					<div class="color-label">Background</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #1e293b;"></div>
+					<div class="color-label">Text</div>
+				</div>
+			</div>
+			<n8n-embedded-chat-interface 
+				label="Corporate Chat" 
+				hostname="https://n8n.mydomain.com/webhook/xxx"
+				primary-color="#2563eb"
+				secondary-color="#64748b"
+				background-color="#f8fafc"
+				text-color="#1e293b"
+				surface-color="#ffffff"
+				border-color="#e2e8f0"
+				open-on-start="false" />
+		</div>
+		-->
+
+		<!-- Green Nature Theme
+		<div class="demo-section">
+			<h2>Green Nature Theme</h2>
+			<p>Eco-friendly green theme perfect for environmental or nature-related websites.</p>
+			<div class="color-preview">
+				<div>
+					<div class="color-sample" style="background-color: #16a34a;"></div>
+					<div class="color-label">Primary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #84cc16;"></div>
+					<div class="color-label">Secondary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #f0fdf4;"></div>
+					<div class="color-label">Background</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #14532d;"></div>
+					<div class="color-label">Text</div>
+				</div>
+			</div>
+			<n8n-embedded-chat-interface 
+				label="Nature Support" 
+				hostname="https://n8n.mydomain.com/webhook/xxx"
+				primary-color="#16a34a"
+				secondary-color="#84cc16"
+				background-color="#f0fdf4"
+				text-color="#14532d"
+				accent-color="#22c55e"
+				surface-color="#ffffff"
+				border-color="#bbf7d0"
+				success-color="#15803d"
+				open-on-start="false" />
+		</div>
+		-->
+
+		<!-- Purple Creative Theme
+		<div class="demo-section">
+			<h2>Purple Creative Theme</h2>
+			<p>Creative purple theme ideal for artistic or creative industry websites.</p>
+			<div class="color-preview">
+				<div>
+					<div class="color-sample" style="background-color: #9333ea;"></div>
+					<div class="color-label">Primary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #a855f7;"></div>
+					<div class="color-label">Secondary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #faf5ff;"></div>
+					<div class="color-label">Background</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #581c87;"></div>
+					<div class="color-label">Text</div>
+				</div>
+			</div>
+			<n8n-embedded-chat-interface 
+				label="Creative Assistant" 
+				hostname="https://n8n.mydomain.com/webhook/xxx"
+				primary-color="#9333ea"
+				secondary-color="#a855f7"
+				background-color="#faf5ff"
+				text-color="#581c87"
+				accent-color="#c084fc"
+				surface-color="#ffffff"
+				border-color="#e9d5ff"
+				open-on-start="false" />
+		</div>
+		-->
+
+		<!-- Dark Theme
+		<div class="demo-section">
+			<h2>Dark Theme</h2>
+			<p>Modern dark theme for websites with dark mode interfaces.</p>
+			<div class="color-preview">
+				<div>
+					<div class="color-sample" style="background-color: #3b82f6;"></div>
+					<div class="color-label">Primary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #6b7280;"></div>
+					<div class="color-label">Secondary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #111827;"></div>
+					<div class="color-label">Background</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #f9fafb;"></div>
+					<div class="color-label">Text</div>
+				</div>
+			</div>
+			<n8n-embedded-chat-interface 
+				label="Dark Mode Chat" 
+				hostname="https://n8n.mydomain.com/webhook/xxx"
+				primary-color="#3b82f6"
+				secondary-color="#6b7280"
+				background-color="#111827"
+				text-color="#f9fafb"
+				surface-color="#1f2937"
+				border-color="#374151"
+				open-on-start="false" />
+		</div>
+		-->
+
+		<!-- Orange Energy Theme
+		<div class="demo-section">
+			<h2>Orange Energy Theme</h2>
+			<p>Vibrant orange theme for energetic and dynamic brands.</p>
+			<div class="color-preview">
+				<div>
+					<div class="color-sample" style="background-color: #ea580c;"></div>
+					<div class="color-label">Primary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #f97316;"></div>
+					<div class="color-label">Secondary</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #fff7ed;"></div>
+					<div class="color-label">Background</div>
+				</div>
+				<div>
+					<div class="color-sample" style="background-color: #9a3412;"></div>
+					<div class="color-label">Text</div>
+				</div>
+			</div>
+			<n8n-embedded-chat-interface 
+				label="Energy Support" 
+				hostname="https://n8n.mydomain.com/webhook/xxx"
+				primary-color="#ea580c"
+				secondary-color="#f97316"
+				background-color="#fff7ed"
+				text-color="#9a3412"
+				accent-color="#fb923c"
+				surface-color="#ffffff"
+				border-color="#fed7aa"
+				warning-color="#f59e0b"
+				open-on-start="false" />
+		</div>
+		-->
+
+		<div style="margin-top: 40px; padding: 20px; text-align: center; color: #666;">
+			<p><strong>Custom Color Properties:</strong></p>
+			<p>primary-color, secondary-color, background-color, text-color, accent-color, surface-color, border-color, success-color, warning-color, error-color</p>
+			<p>Use hex colors (e.g., #ff0000), RGB (e.g., rgb(255,0,0)), or CSS color names (e.g., red)</p>
+			<p><strong>To switch themes:</strong> Comment out the active example and uncomment one of the examples above.</p>
+		</div>
 	</body>
 </html>

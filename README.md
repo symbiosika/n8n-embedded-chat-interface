@@ -116,6 +116,78 @@ http://localhost:8000/demo/
 | `mode`          | String | `"n8n"`   | Chat mode (currently only n8n)           |
 | `open-on-start` | String | `"false"` | Open chat on page load                   |
 
+### 🎨 Custom Color Schemes
+
+You can customize the appearance of the chat interface by specifying custom colors. The component supports up to 10 different color properties:
+
+```html
+<n8n-embedded-chat-interface 
+  label="Custom Themed Chat" 
+  hostname="https://your-n8n-webhook.com"
+  primary-color="#2563eb"
+  secondary-color="#64748b"
+  background-color="#f8fafc"
+  text-color="#1e293b"
+  accent-color="#3b82f6"
+  surface-color="#ffffff"
+  border-color="#e2e8f0"
+  success-color="#16a34a"
+  warning-color="#f59e0b"
+  error-color="#dc2626"
+  open-on-start="false">
+</n8n-embedded-chat-interface>
+```
+
+#### Color Properties
+
+| Property           | Description                           | Example Values                     |
+| ------------------ | ------------------------------------- | ---------------------------------- |
+| `primary-color`    | Primary brand color (buttons, header) | `#2563eb`, `rgb(37,99,235)`, `blue` |
+| `secondary-color`  | Secondary accent color               | `#64748b`, `gray`, `hsl(215,25%,27%)` |
+| `background-color` | Main background color                | `#f8fafc`, `white`, `#111827`      |
+| `text-color`       | Primary text color                   | `#1e293b`, `black`, `#f9fafb`      |
+| `accent-color`     | Highlight and accent elements        | `#3b82f6`, `rgb(59,130,246)`       |
+| `surface-color`    | Cards and surface backgrounds        | `#ffffff`, `#1f2937`               |
+| `border-color`     | Border and divider color             | `#e2e8f0`, `#374151`               |
+| `success-color`    | Success messages and indicators      | `#16a34a`, `green`                 |
+| `warning-color`    | Warning messages and indicators      | `#f59e0b`, `orange`                |
+| `error-color`      | Error messages and indicators        | `#dc2626`, `red`                   |
+
+#### Supported Color Formats
+
+- **Hex colors**: `#ff0000`, `#f00`, `#ff0000ff`
+- **RGB/RGBA**: `rgb(255,0,0)`, `rgba(255,0,0,0.5)`
+- **HSL/HSLA**: `hsl(0,100%,50%)`, `hsla(0,100%,50%,0.5)`
+- **Named colors**: `red`, `blue`, `transparent`, etc.
+
+#### Security & Validation
+
+All color values are automatically validated to prevent CSS injection attacks. Invalid color values will be ignored and logged as warnings in the browser console.
+
+#### Example Themes
+
+**Corporate Blue Theme:**
+```html
+<n8n-embedded-chat-interface 
+  primary-color="#2563eb" 
+  secondary-color="#64748b" 
+  background-color="#f8fafc" 
+  text-color="#1e293b"
+  hostname="your-webhook-url">
+</n8n-embedded-chat-interface>
+```
+
+**Dark Theme:**
+```html
+<n8n-embedded-chat-interface 
+  primary-color="#3b82f6" 
+  background-color="#111827" 
+  text-color="#f9fafb" 
+  surface-color="#1f2937"
+  hostname="your-webhook-url">
+</n8n-embedded-chat-interface>
+```
+
 ## 🗺️ Roadmap
 
 ### 🎯 Planned Features
