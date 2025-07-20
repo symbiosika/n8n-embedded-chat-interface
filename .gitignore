@@ -33,4 +33,6 @@ src/styles/output.css
 
 output/index.css
 output/index.umd.cjs
+output/index.js
+output/n8n-embedded-chat-interface.css
 demo/index.html
