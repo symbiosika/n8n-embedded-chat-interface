@@ -50,7 +50,9 @@
 	<body>
 		<h1 style="text-align: center; color: #333;">N8N Embedded Chat Interface - Custom Color Schemes Demo</h1>
 		
-		<!-- Default Theme -->
+		<!-- ===== ACTIVE EXAMPLE - Only one should be uncommented at a time ===== -->
+		
+		<!-- Default Theme - ACTIVE -->
 		<div class="demo-section">
 			<h2>Default Theme</h2>
 			<p>Standard gray theme with no custom colors specified.</p>
@@ -60,7 +62,9 @@
 				open-on-start="false" />
 		</div>
 
-		<!-- Blue Corporate Theme -->
+		<!-- ===== COMMENTED EXAMPLES - Uncomment one at a time ===== -->
+
+		<!-- Blue Corporate Theme
 		<div class="demo-section">
 			<h2>Blue Corporate Theme</h2>
 			<p>Professional blue theme suitable for corporate websites.</p>
@@ -93,8 +97,9 @@
 				border-color="#e2e8f0"
 				open-on-start="false" />
 		</div>
+		-->
 
-		<!-- Green Nature Theme -->
+		<!-- Green Nature Theme
 		<div class="demo-section">
 			<h2>Green Nature Theme</h2>
 			<p>Eco-friendly green theme perfect for environmental or nature-related websites.</p>
@@ -129,8 +134,9 @@
 				success-color="#15803d"
 				open-on-start="false" />
 		</div>
+		-->
 
-		<!-- Purple Creative Theme -->
+		<!-- Purple Creative Theme
 		<div class="demo-section">
 			<h2>Purple Creative Theme</h2>
 			<p>Creative purple theme ideal for artistic or creative industry websites.</p>
@@ -164,8 +170,9 @@
 				border-color="#e9d5ff"
 				open-on-start="false" />
 		</div>
+		-->
 
-		<!-- Dark Theme -->
+		<!-- Dark Theme
 		<div class="demo-section">
 			<h2>Dark Theme</h2>
 			<p>Modern dark theme for websites with dark mode interfaces.</p>
@@ -198,8 +205,9 @@
 				border-color="#374151"
 				open-on-start="false" />
 		</div>
+		-->
 
-		<!-- Minimalist Orange Theme -->
+		<!-- Orange Energy Theme
 		<div class="demo-section">
 			<h2>Orange Energy Theme</h2>
 			<p>Vibrant orange theme for energetic and dynamic brands.</p>
@@ -234,11 +242,13 @@
 				warning-color="#f59e0b"
 				open-on-start="false" />
 		</div>
+		-->
 
 		<div style="margin-top: 40px; padding: 20px; text-align: center; color: #666;">
 			<p><strong>Custom Color Properties:</strong></p>
 			<p>primary-color, secondary-color, background-color, text-color, accent-color, surface-color, border-color, success-color, warning-color, error-color</p>
 			<p>Use hex colors (e.g., #ff0000), RGB (e.g., rgb(255,0,0)), or CSS color names (e.g., red)</p>
+			<p><strong>To switch themes:</strong> Comment out the active example and uncomment one of the examples above.</p>
 		</div>
 	</body>
 </html>

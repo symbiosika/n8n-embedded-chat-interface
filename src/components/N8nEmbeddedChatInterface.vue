@@ -47,7 +47,7 @@ import ChatN8n from "@/components/chat/n8n/Index.vue";
 
 import { useDark, useToggle } from "@vueuse/core";
 import { useApp } from "@/stores/App";
-import { getCurrentInstance } from "vue";
+import { onBeforeMount } from "vue";
 
 // import SunIcon from "~icons/mdi/weather-sunny";
 // import MoonIcon from "~icons/mdi/weather-night";
@@ -93,87 +93,6 @@ const parseMode = (input?: string): Mode => {
 const parsedMode = parseMode(props.mode);
 const tab = ref<Mode>(parsedMode);
 
-// Function to inject custom color CSS variables
-const injectCustomColors = () => {
-	const colorMappings = {
-		'--custom-primary': props.primaryColor,
-		'--custom-secondary': props.secondaryColor,
-		'--custom-background': props.backgroundColor,
-		'--custom-text': props.textColor,
-		'--custom-accent': props.accentColor,
-		'--custom-surface': props.surfaceColor,
-		'--custom-border': props.borderColor,
-		'--custom-success': props.successColor,
-		'--custom-warning': props.warningColor,
-		'--custom-error': props.errorColor
-	};
-
-	// Find the shadow root (we're inside a web component)
-	let targetElement = document.documentElement;
-	const currentElement = getCurrentInstance()?.vnode.el;
-	if (currentElement) {
-		// Look for shadow root
-		let parent = currentElement.parentNode;
-		while (parent && parent.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) {
-			parent = parent.parentNode;
-		}
-		if (parent && parent.host) {
-			targetElement = parent.host as HTMLElement;
-		}
-	}
-
-	// Create or find existing style element for custom colors
-	let styleElement = targetElement.querySelector('#custom-colors-style') as HTMLStyleElement;
-	if (!styleElement) {
-		styleElement = document.createElement('style');
-		styleElement.id = 'custom-colors-style';
-		if (targetElement === document.documentElement) {
-			document.head.appendChild(styleElement);
-		} else {
-			// We're in shadow DOM, inject into shadow root
-			const shadowRoot = targetElement.shadowRoot || (targetElement as any).getRootNode();
-			if (shadowRoot && shadowRoot.appendChild) {
-				shadowRoot.appendChild(styleElement);
-			}
-		}
-	}
-
-	// Build CSS with custom properties and Tailwind class overrides
-	let cssContent = ':host, :root {\n';
-	Object.entries(colorMappings).forEach(([property, value]) => {
-		if (value) {
-			cssContent += `  ${property}: ${value};\n`;
-		}
-	});
-	cssContent += '}\n\n';
-
-	// Add Tailwind utility overrides when custom colors are provided
-	if (props.primaryColor) {
-		cssContent += `.bg-primary { background-color: var(--custom-primary) !important; }\n`;
-		cssContent += `.text-primary { color: var(--custom-primary) !important; }\n`;
-		cssContent += `.border-primary { border-color: var(--custom-primary) !important; }\n`;
-	}
-	if (props.secondaryColor) {
-		cssContent += `.bg-secondary { background-color: var(--custom-secondary) !important; }\n`;
-		cssContent += `.text-secondary { color: var(--custom-secondary) !important; }\n`;
-	}
-	if (props.backgroundColor) {
-		cssContent += `.bg-white { background-color: var(--custom-background) !important; }\n`;
-	}
-	if (props.textColor) {
-		cssContent += `.text-white { color: var(--custom-text) !important; }\n`;
-		cssContent += `.text-black { color: var(--custom-text) !important; }\n`;
-	}
-	if (props.surfaceColor) {
-		cssContent += `.bg-surface-0, .bg-surface-50 { background-color: var(--custom-surface) !important; }\n`;
-	}
-	if (props.borderColor) {
-		cssContent += `.border, .border-gray-200 { border-color: var(--custom-border) !important; }\n`;
-	}
-
-	styleElement.textContent = cssContent;
-};
-
 onBeforeMount(() => {
 	show.value = props.openOnStart === "true";
 	appConfig.value = {
@@ -183,8 +102,5 @@ onBeforeMount(() => {
 		mode: parsedMode,
 	};
 	console.log("appConfig", JSON.stringify(appConfig.value, null, 2));
-	
-	// Inject custom colors if provided
-	injectCustomColors();
 });
 </script>
