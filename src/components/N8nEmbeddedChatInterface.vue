@@ -91,7 +91,6 @@ const parseMode = (input?: string): Mode => {
 	}
 };
 const parsedMode = parseMode(props.mode);
-const tab = ref<Mode>(parsedMode);
 
 onBeforeMount(() => {
 	show.value = props.openOnStart === "true";
