@@ -29,7 +29,8 @@
 		"preview": "vite preview",
 		"build-only": "vite build",
 		"type-check": "vue-tsc --build",
-		"format": "prettier --write src/"
+		"format": "prettier --write src/",
+		"demo": "vite build && npx http-server . -p 8000"
 	},
 	"dependencies": {
 		"@11labs/client": "^0.1.4",

@@ -89,6 +89,15 @@ npm run build
 npm run dev
 ```
 
+To run a demo please create a copy of "demo\index.html.sample" to "demo\index.html" and run:
+
+```bash
+npm run demo
+```
+
+Then open the Browser on:
+http://localhost:8000/demo/
+
 ## 🛠️ Configuration
 
 ### Basic Configuration
@@ -112,7 +121,6 @@ npm run dev
 ### 🎯 Planned Features
 
 - [ ] **Voice Chat**: Speech input and output
-- [ ] **Image Generation**: Image generation with AI from a chat input
 
 ## 🤝 Contributing
 
