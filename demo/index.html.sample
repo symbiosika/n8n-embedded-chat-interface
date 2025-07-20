@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>REAL DEMO - Embeded as Web Component</title>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/n8n-embedded-chat-interface@latest/output/index.umd.cjs"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/n8n-embedded-chat-interface@latest/output/index.js"></script>
 		<!-- <script type="module" src="./index.umd.cjs"></script> -->
 	</head>
 

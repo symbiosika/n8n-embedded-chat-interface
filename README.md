@@ -33,7 +33,7 @@ Setup your website with the following code:
 
 ```html
 <!-- Add these lines to your website -->
-<script src="https://cdn.jsdelivr.net/npm/n8n-embedded-chat-interface@latest/output/index.umd.cjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/n8n-embedded-chat-interface@latest/output/index.js"></script>
 
 <n8n-embedded-chat-interface label="My AI Assistant" hostname="https://your-n8n-webhook.com/webhook/:id-of-your-webhook-node" open-on-start="false"> </n8n-embedded-chat-interface>
 ```
