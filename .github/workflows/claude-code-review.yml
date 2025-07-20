@@ -3,6 +3,10 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
     # Optional: Only run on specific file changes
     # paths:
     #   - "src/**/*.ts"
@@ -12,11 +16,11 @@ on:
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
+    # Filter by PR author wertania OR comment with @claude from wertania
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.user.login == 'wertania') ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude') && github.event.comment.user.login == 'wertania') ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude') && github.event.comment.user.login == 'wertania')
     
     runs-on: ubuntu-latest
     permissions:
