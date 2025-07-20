@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
 				entry: "src/prod.ts",
 				formats: ["umd"],
 				name: "n8n-embedded-chat-interface",
-				fileName: "index",
+				fileName: () => "index.js",
 			},
 			rollupOptions: {
 				external: [],
