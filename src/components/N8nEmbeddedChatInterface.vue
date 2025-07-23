@@ -64,6 +64,7 @@ const props = defineProps({
 	hostname: String, 
 	mode: String, 
 	openOnStart: String,
+	initialMessage: String,
 	// Custom color scheme props (max 10 colors)
 	primaryColor: String,
 	secondaryColor: String,
@@ -99,6 +100,7 @@ onBeforeMount(() => {
 		description: props.description ?? "",
 		hostname: props.hostname ?? "",
 		mode: parsedMode,
+		initialMessage: props.initialMessage ?? "",
 	};
 	console.log("appConfig", JSON.stringify(appConfig.value, null, 2));
 });

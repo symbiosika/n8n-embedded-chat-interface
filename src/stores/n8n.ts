@@ -46,12 +46,20 @@ export const useN8n = createGlobalState(() => {
 		}
 	};
 
+	const initializeChat = () => {
+		if (appConfig.value.initialMessage && appConfig.value.initialMessage.trim() !== "") {
+			messages.value = [{ role: "assistant", content: appConfig.value.initialMessage }];
+		} else {
+			messages.value = [];
+		}
+	};
+
 	const clearChat = () => {
-		messages.value = [];
 		userInput.value = "";
 		isLoading.value = false;
 		sessionId.value = null;
+		initializeChat();
 	};
 
-	return { messages, userInput, sendMessage, isLoading, clearChat };
+	return { messages, userInput, sendMessage, isLoading, clearChat, initializeChat };
 });
