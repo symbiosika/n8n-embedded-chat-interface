@@ -50,8 +50,13 @@ import { useN8n } from "@/stores/n8n";
 import Renderer from "@/components/markdown/Renderer.vue";
 import FluentErase24Regular from "~icons/fluent/eraser-24-regular";
 import { useI18n } from "vue-i18n";
+import { onMounted } from "vue";
 
 const { t } = useI18n();
-const { messages, userInput, sendMessage, isLoading, clearChat } = useN8n();
+const { messages, userInput, sendMessage, isLoading, clearChat, initializeChat } = useN8n();
 const focused = ref(false);
+
+onMounted(() => {
+	initializeChat();
+});
 </script>

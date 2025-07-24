@@ -8,6 +8,7 @@ export const useApp = createGlobalState(() => {
 		description: "",
 		hostname: "",
 		mode: "",
+		initialMessage: "",
 	});
 	return { isMaximized, show, appConfig };
 });
