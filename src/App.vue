@@ -15,7 +15,7 @@
 			</div>
 		</header>
 		<!-- For testing -->
-		<N8nEmbeddedChatInterface label="n8n Chat Demo" description="This is a n8n Chat Demo" :hostname="testUrl" mode="n8n" open-on-start="false" />
+		<N8nEmbeddedChatInterface label="n8n Chat Demo" description="This is a n8n Chat Demo" :hostname="testUrl" mode="n8n" open-on-start="true" initial-message="Hello, how are you?" />
 	</div>
 </template>
 <script setup>
