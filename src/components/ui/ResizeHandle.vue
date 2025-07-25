@@ -1,22 +1,30 @@
 <template>
 	<div
-		class="absolute left-0 top-0 z-10 cursor-nw-resize"
+		class="absolute left-0 top-0 z-20 cursor-nw-resize"
 		@mousedown="startResize"
 		@touchstart="startResize"
 	>
-		<div class="h-4 w-4 bg-primary/20 hover:bg-primary/40 transition-colors duration-200">
-			<div class="absolute left-1 top-1 h-2 w-2">
+		<!-- Larger interactive area for better usability -->
+		<div class="h-6 w-6 bg-primary/30 hover:bg-primary/50 transition-colors duration-200 border border-primary/40 rounded-sm">
+			<div class="absolute left-1 top-1 h-4 w-4 flex items-center justify-center">
 				<svg
-					width="8"
-					height="8"
-					viewBox="0 0 8 8"
+					width="12"
+					height="12"
+					viewBox="0 0 12 12"
 					fill="none"
 					class="text-primary"
 				>
+					<!-- More visible resize icon -->
 					<path
-						d="M0 8L8 0M0 4L4 0M0 0L0 0"
+						d="M1 11L11 1M1 7L7 1M1 3L3 1"
 						stroke="currentColor"
-						stroke-width="1"
+						stroke-width="1.5"
+						stroke-linecap="round"
+					/>
+					<path
+						d="M5 11L11 5M9 11L11 9"
+						stroke="currentColor"
+						stroke-width="1.5"
 						stroke-linecap="round"
 					/>
 				</svg>
