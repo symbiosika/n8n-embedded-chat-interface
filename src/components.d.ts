@@ -34,6 +34,7 @@ declare module 'vue' {
     UiDropdownMenuDropdownMenuSubTrigger: typeof import('./components/ui/dropdown-menu/DropdownMenuSubTrigger.vue')['default']
     UiDropdownMenuDropdownMenuTrigger: typeof import('./components/ui/dropdown-menu/DropdownMenuTrigger.vue')['default']
     UiInputInput: typeof import('./components/ui/input/Input.vue')['default']
+    UiResizeHandle: typeof import('./components/ui/ResizeHandle.vue')['default']
     UiTextareaTextarea: typeof import('./components/ui/textarea/Textarea.vue')['default']
     UiToastToast: typeof import('./components/ui/toast/Toast.vue')['default']
     UiToastToastAction: typeof import('./components/ui/toast/ToastAction.vue')['default']

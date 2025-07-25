@@ -107,4 +107,3 @@ onUnmounted(() => {
 	document.removeEventListener("touchend", stopResize);
 });
 </script>
-</template>
