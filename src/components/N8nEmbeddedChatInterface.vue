@@ -6,8 +6,20 @@
 		</span>
 	</div>
 
-	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[460px] w-80 rounded-md border', 'fixed overflow-hidden bg-white dark:bg-neutral-950']">
-		<div class="flex h-10 items-center justify-between bg-primary p-2">
+	<div 
+		v-if="show" 
+		:class="[
+			isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 rounded-md border', 
+			'fixed overflow-hidden bg-white dark:bg-neutral-950'
+		]"
+		:style="!isMaximized ? {
+			width: `${chatSize.width}px`,
+			height: `${chatSize.height}px`
+		} : {}"
+	>
+		<!-- Resize handle - only show on desktop when not maximized -->
+		<ResizeHandle v-if="!isMaximized" />
+		<div class="flex h-10 items-center justify-between bg-primary p-2 relative z-10">
 			<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
 			<div class="flex items-center">
 				<!-- TODO: add settings icon -->
@@ -38,6 +50,7 @@
 
 <script setup lang="ts">
 import Toaster from "@/components/ui/toast/Toaster.vue";
+import ResizeHandle from "@/components/ui/ResizeHandle.vue";
 import Maximize from "~icons/flowbite/expand-outline";
 import Question from "~icons/proicons/question";
 import Close from "~icons/material-symbols/close-rounded";
@@ -53,7 +66,7 @@ import { onBeforeMount } from "vue";
 // import MoonIcon from "~icons/mdi/weather-night";
 // import SettingsIcon from "~icons/ic/round-settings";
 
-const { isMaximized, show, appConfig } = useApp();
+const { isMaximized, show, appConfig, chatSize } = useApp();
 
 const props = defineProps({ 
 	label: String, 
